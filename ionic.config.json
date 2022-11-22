@@ -1,0 +1,7 @@
+{
+  "name": "app-odonto",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header">
+      <ion-back-button defaultHref="home" mode="md" text=""></ion-back-button>
+    <ion-title>
+      Perfil
+    </ion-title>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll-x="false" fullscreen *ngFor="let user of users | async">
+  <div class="black">
+<div class="containerheader">
+    <div class="containertopchildren">
+      
+    </div>
+    <div class="containertopchildren2">
+      <ion-button expand="block" shape="round" color="danger" (click)="presentAlert()" Strong>Sair</ion-button>
+    </div>
+  </div>
+  <img alt="fotoperfil" referrerpolicy=“no-referrer” id="fotoperfil" [src]="user.photoURL"/>
+  <h3>{{user.displayName}}</h3>
+
+  <div class="caixa ion-activatable">
+      <div class="info_upedido">
+        <div class="info_upedido-dado"><ion-icon class="colorprimary" name="mail"></ion-icon><p>E-mail:</p></div>
+        <div class="info_upedido-dado"><ion-icon class="colorprimary" name="phone-portrait"></ion-icon><p>Celular:</p></div>
+      </div>
+      <div class="info_upedido">
+        <div class="info_upedido-dado"><p>{{user.email}}</p></div>
+        <div class="info_upedido-dado"><p>{{user.celular}}</p></div>
+      </div><ion-ripple-effect></ion-ripple-effect>
+    </div>
+    <ion-button expand="block" shape="round" Strong (click)="editar()">Editar Perfil</ion-button>
+</div>
+</ion-content>

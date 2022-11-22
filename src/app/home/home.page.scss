@@ -1,0 +1,86 @@
+div.fundo{
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ion-avatar.logo{
+  max-width: 30px;
+  max-height: 30px;
+  margin-left: 15px;
+}
+
+ion-avatar.perfil{
+  max-width: 50px;
+  max-height: 50px;
+  margin-top: 30px;
+}
+
+
+.colorprimary{
+  color:#62c1e8;
+  --color:#62c1e8;
+}
+
+.vermelho{
+  color:#d41c1c;
+  --color:#d41c1c;
+}
+
+.header{
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 30px;
+}
+
+.input-button{
+  min-width: 140px;
+  font-size: 20px;
+  min-height: 40px;
+}
+
+.resultado-texto{
+  margin: 0px 10px;
+}
+
+.input-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 20px;
+}
+
+.space-around{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-end{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-button{
+  margin: 20px 0px;
+}
+
+
+
+

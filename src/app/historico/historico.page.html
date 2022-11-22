@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header">
+      <ion-back-button defaultHref="home" mode="md" text=""></ion-back-button>
+    <ion-title>
+      Histórico
+    </ion-title>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll-x="false" fullscreen>
+  <div class="black">
+
+<div class="containerheader">
+    <div class="containertopchildren">  
+    <h2 class="entrar">Procedimentos Agendados</h2>
+    </div>
+    <div class="containertopchildren2" [routerLink]="['/novoservico']">
+      <ion-icon id="iconaddservico" name="add-circle-outline"></ion-icon>
+    </div>
+  </div>    
+
+  <hr>
+  <ion-segment scrollable (ionChange)="segmentChanged($event)">
+    
+    
+      <ion-segment-button *ngFor="let stat of status | async" value="{{stat.id}}">
+      <ion-label>{{stat.nome}}</ion-label>
+    </ion-segment-button>
+  
+
+  </ion-segment>
+
+  <div *ngIf="(agendamentos | async)?.length ; else noagendamento">
+  <div class="caixa ion-activatable" *ngFor="let agendamento of agendamentos | async">
+    <div class="containertop" (click)="detalhar(agendamento.servico, agendamento.profissional, agendamento.data, agendamento.hora, agendamento.pagamento, agendamento.docId, agendamento.status)">
+      <span *ngFor="let prof of profissionais | async"><div *ngIf="prof.id==agendamento.profissional" style="background-image: url('{{prof.img}}');"></div></span>
+      <div class="info_upedido">
+        <span *ngFor="let serv of servicos | async"><h6 *ngIf="serv.id==agendamento.servico">{{serv.nome}}</h6></span>
+        <div class="info_upedido-dado"><ion-icon name="cut"></ion-icon><span *ngFor="let user of users | async"><p *ngIf="user.id==agendamento.profissional">{{user.displayName}}</p></span></div>
+        <div class="info_upedido-dado"><ion-icon name="calendar"></ion-icon><p>{{agendamento.data}} {{agendamento.hora}}</p></div>
+        <div class="info_upedido-dado"><ion-icon name="pricetag"></ion-icon><p>Status:</p><span *ngFor="let stat of status | async"><p *ngIf="stat.id==agendamento.status" class="{{stat.cor}}">{{stat.nome}}</p></span></div>
+      </div>
+  </div><ion-ripple-effect></ion-ripple-effect>
+</div>
+</div>
+
+<ng-template #noagendamento>
+  <div class="caixa"><h6>Não há Agendamentos</h6></div>
+  </ng-template>
+
+</div>
+</ion-content>
+
